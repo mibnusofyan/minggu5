@@ -1,3 +1,7 @@
+<?php
+include 'popup-handler.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,23 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menara Pandang Teratai</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function myFunction() {
-            var x;
-            var r = confirm("Press OK or Cancel button");
-            if (r == true) {
-                x = "You pressed OK!";
-            }
-            else {
-                x = "You pressed Cancel!";
-            }
-            document.getElementById("demo").innerHTML = x;
-        }
-    </script>
 </head>
 
 <body>
-
     <header class="header">
         <img class="logo-nav" src="logo.png" alt="logo menara">
         <h2>Menara Pandang Teratai</h2>
@@ -44,10 +34,12 @@
                     keindahan kota Purwokerto di monumen tertinggi kota satria.</p>
             </div>
             <div class="hero-buttons">
-                <button>Pesan Tiket</button>
+                <form method="post" action="">
+                    <input type="hidden" name="action" value="showPopup">
+                    <button type="submit">Pesan Tiket</button>
+                </form>
                 <button>Lihat Sejarah</button>
             </div>
-
         </section>
 
         <section class="team-section">
@@ -58,12 +50,17 @@
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src=""" alt=" Jane" style="width:100%">
+                        <img src="" alt="Jane" style="width:100%">
                         <div class="container">
                             <h2>Jane Doe</h2>
                             <p class="title">CEO & Founder</p>
-
-                            <p><button class="button">Contact</button></p>
+                            <p>
+                            <form method="post" action="">
+                                <input type="hidden" name="action" value="showPopup">
+                                <input type="hidden" name="member" value="Jane">
+                                <button type="submit" class="show-popup-button">Contact</button>
+                            </form>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -74,8 +71,13 @@
                         <div class="container">
                             <h2>Mike Ross</h2>
                             <p class="title">Art Director</p>
-
-                            <p><button class="button">Contact</button></p>
+                            <p>
+                            <form method="post" action="">
+                                <input type="hidden" name="action" value="showPopup">
+                                <input type="hidden" name="member" value="Mike">
+                                <button type="submit" class="show-popup-button">Contact</button>
+                            </form>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -86,16 +88,30 @@
                         <div class="container">
                             <h2>John Doe</h2>
                             <p class="title">Designer</p>
-                            <p><button class="button">Jobdesk</button></p>
+                            <p>
+                            <form method="post" action="">
+                                <input type="hidden" name="action" value="showPopup">
+                                <input type="hidden" name="member" value="John">
+                                <button type="submit" class="show-popup-button">Contact</button>
+                            </form>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <?php
+        include 'popup-component.php';
+        ?>
+
     </main>
 
-
+    <script>
+        function closePopup() {
+            document.getElementById('popupContainer').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
