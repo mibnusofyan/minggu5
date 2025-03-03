@@ -21,8 +21,8 @@ include 'popup-handler.php';
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Pesan Tiket</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
             </ul>
         </nav>
     </header>
