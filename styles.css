@@ -105,7 +105,7 @@ body {
 
 .column {
     float: left;
-    width: 33.3%;
+    width: 25%;
     margin-bottom: 16px;
     padding: 0 8px;
 }
@@ -146,10 +146,6 @@ body {
     text-align: center;
     cursor: pointer;
     width: 100%;
-}
-
-.button:hover {
-    background-color: #555;
 }
 
 .team-section {
@@ -194,14 +190,6 @@ body {
   margin: 0;
 }
 
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #777;
-}
-
 .popup-content {
   margin-bottom: 20px;
 }
@@ -210,23 +198,9 @@ body {
   text-align: right;
 }
 
-.btn {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-secondary {
-  background-color: #f44336;
-  margin-right: 10px;
-}
-
 .show-popup-btn {
   padding: 10px 20px;
-  background-color: #2196F3;
+  background-color: #9b1a37;
   color: white;
   border: none;
   border-radius: 4px;

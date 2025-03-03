@@ -50,15 +50,15 @@ include 'popup-handler.php';
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src="" alt="Jane" style="width:100%">
+                        <img src="ibnu.png" alt="Jane" style="width:100%; height:300px;">
                         <div class="container">
-                            <h2>Jane Doe</h2>
-                            <p class="title">CEO & Founder</p>
+                            <h3>Muhammad Ibnu Sofyan</h3>
+                            <p class="title">FrontEnd Developer</p>
                             <p>
                             <form method="post" action="">
                                 <input type="hidden" name="action" value="showPopup">
                                 <input type="hidden" name="member" value="Jane">
-                                <button type="submit" class="show-popup-button">Contact</button>
+                                <button type="submit" class="show-popup-button">More Details</button>
                             </form>
                             </p>
                         </div>
@@ -69,13 +69,13 @@ include 'popup-handler.php';
                     <div class="card">
                         <img src="" alt="Mike" style="width:100%">
                         <div class="container">
-                            <h2>Mike Ross</h2>
-                            <p class="title">Art Director</p>
+                            <h3>Meiwildan Muhammad Farrel</h3>
+                            <p class="title">UI UX & Hosting</p>
                             <p>
                             <form method="post" action="">
                                 <input type="hidden" name="action" value="showPopup">
                                 <input type="hidden" name="member" value="Mike">
-                                <button type="submit" class="show-popup-button">Contact</button>
+                                <button type="submit" class="show-popup-button">More Details</button>
                             </form>
                             </p>
                         </div>
@@ -86,13 +86,29 @@ include 'popup-handler.php';
                     <div class="card">
                         <img src="" alt="John" style="width:100%">
                         <div class="container">
-                            <h2>John Doe</h2>
-                            <p class="title">Designer</p>
+                            <h3>Jaiz Cahya Prasetya</h3>
+                            <p class="title">Backend Developer</p>
                             <p>
                             <form method="post" action="">
                                 <input type="hidden" name="action" value="showPopup">
                                 <input type="hidden" name="member" value="John">
-                                <button type="submit" class="show-popup-button">Contact</button>
+                                <button type="submit" class="show-popup-button">More Details</button>
+                            </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="" alt="Yuka" style="width:100%">
+                        <div class="container">
+                            <h3>Dedy Tigor Manurung</h3>
+                            <p class="title">Database& Server</p>
+                            <p>
+                            <form method="post" action="">
+                                <input type="hidden" name="action" value="showPopup">
+                                <input type="hidden" name="member" value="Yuka">
+                                <button type="submit" class="show-popup-button">More Details</button>
                             </form>
                             </p>
                         </div>
