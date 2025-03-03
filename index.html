@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menara Pandang Teratai</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function myFunction() {
+            var x;
+            var r = confirm("Press OK or Cancel button");
+            if (r == true) {
+                x = "You pressed OK!";
+            }
+            else {
+                x = "You pressed Cancel!";
+            }
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
 </head>
 
 <body>
@@ -36,6 +49,50 @@
             </div>
 
         </section>
+
+        <section class="team-section">
+            <h2>Meet The Team</h2>
+            <p>Kelompok Tugas Besar Pemrograman Aplikasi Web</p>
+            <br>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src=""" alt=" Jane" style="width:100%">
+                        <div class="container">
+                            <h2>Jane Doe</h2>
+                            <p class="title">CEO & Founder</p>
+
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="" alt="Mike" style="width:100%">
+                        <div class="container">
+                            <h2>Mike Ross</h2>
+                            <p class="title">Art Director</p>
+
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="" alt="John" style="width:100%">
+                        <div class="container">
+                            <h2>John Doe</h2>
+                            <p class="title">Designer</p>
+                            <p><button class="button">Jobdesk</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
 
