@@ -10,7 +10,6 @@ include 'popup-handler.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menara Pandang Teratai</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -20,7 +19,7 @@ include 'popup-handler.php';
         <nav class="navigation">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Pesan Tiket</a></li>
+                <li><a href="form.php">Pesan Tiket</a></li>
                 <li><a href="#">Tentang</a></li>
                 <li><a href="#">Kontak</a></li>
             </ul>
@@ -35,10 +34,7 @@ include 'popup-handler.php';
                     keindahan kota Purwokerto di monumen tertinggi kota satria.</p>
             </div>
             <div class="hero-buttons">
-                <form method="post" action="">
-                    <input type="hidden" name="action" value="showPopup">
-                    <button type="submit">Pesan Tiket</button>
-                </form>
+                <button><a href="form.php">Pesan Tiket</a></button>
                 <button>Lihat Sejarah</button>
             </div>
         </section>
@@ -123,7 +119,6 @@ include 'popup-handler.php';
         ?>
 
     </main>
-
     <script>
         function closePopup() {
             document.getElementById('popupContainer').style.display = 'none';
