@@ -1,7 +1,8 @@
 <?php
 $nama = $email = $nomor = $tiket = $tanggal = $permintaan = "";
 $namaErr = $emailErr = $nomorErr = $tanggalErr = $permintaanErr = "";
-$successMessage = "";
+$bookingCode = "";
+$isSuccess = false;
 
 require_once 'connection.php';
 
@@ -110,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             );
 
             if ($stmtBooking->execute()) {
-                $successMessage = "Pembelian tiket berhasil! Kode booking Anda: " . $bookingCode;
+                $isSuccess = true;
             } else {
                 echo "Error: " . $stmtBooking->error;
             }
@@ -133,97 +134,83 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Pembelian Tiket</title>
     <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-
-    <div class="container">
-        <h2>Form Pembelian Tiket</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-            <div class="form-group">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo $nama; ?>">
-                <span class="error"><?php echo $namaErr ? "* $namaErr" : ""; ?></span>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="Masukkan Email" value="<?php echo $email; ?>">
-                <span class="error"><?php echo $emailErr ? "* $emailErr" : ""; ?></span>
-            </div>
-
-            <div class="form-group">
-                <label for="nomor">Nomor Telepon:</label>
-                <input type="text" id="nomor" name="nomor" placeholder="Masukkan Nomor Telepon" value="<?php echo $nomor; ?>">
-                <span class="error"><?php echo $nomorErr ? "* $nomorErr" : ""; ?></span>
-            </div>
-
-            <div class="form-group">
-                <label for="tiket">Pilih tiket:</label>
-                <select id="tiket" name="tiket">
-                    <option value="Premium - Rp. 25.000" <?php echo ($tiket == "Premium - Rp. 25.000") ? "selected" : ""; ?>>Premium - Rp. 25.000</option>
-                    <option value="Reguler - Rp. 20.000" <?php echo ($tiket == "Reguler - Rp. 20.000") ? "selected" : ""; ?>>Reguler - Rp. 20.000</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="tanggal" class="col-sm-2 control-label">Tanggal:</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $tanggal; ?>">
-                    <span class="error"><?php echo $tanggalErr ? "* $tanggalErr" : ""; ?></span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="permintaan">Permintaan Khusus:</label>
-                <textarea id="permintaan" name="permintaan" placeholder="Isi permintaan khusus"><?php echo $permintaan; ?></textarea>
-                <span class="error"><?php echo $permintaanErr ? "* $permintaanErr" : ""; ?></span>
-            </div>
-
-            <div class="button-container">
-                <button type="submit">Beli tiket</button>
-            </div>
-        </form>
-    </div>
-
-    <?php if (!empty($successMessage)) { ?>
-        <div class="container success-message">
-            <h3><?php echo $successMessage; ?></h3>
-            <p>Terima kasih telah memesan tiket di Menara Pandang Teratai.</p>
-            <p>Silahkan lakukan pembayaran untuk menyelesaikan proses pemesanan.</p>
-            <div class="button-container">
-                <button onclick="window.location.href='index.php'">Kembali ke Beranda</button>
-            </div>
-        </div>
-    <?php } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && !$namaErr && !$emailErr && !$nomorErr && !$tanggalErr && !$permintaanErr) { ?>
+    <?php if (!$isSuccess) { ?>
         <div class="container">
-            <h3>Data Pembelian Tiket</h3>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th width="20%">Nama</th>
-                            <th width="20%">Email</th>
-                            <th width="15%">Nomor Telepon</th>
-                            <th width="15%">Tiket</th>
-                            <th width="15%">Tanggal</th>
-                            <th width="30%">Permintaan Khusus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $nama; ?></td>
-                            <td><?php echo $email; ?></td>
-                            <td><?php echo $nomor; ?></td>
-                            <td><?php echo $tiket; ?></td>
-                            <td><?php echo $tanggal; ?></td>
-                            <td><?php echo $permintaan; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h2>Form Pembelian Tiket</h2>
+            <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                <div class="form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo $nama; ?>">
+                    <span class="error"><?php echo $namaErr ? "* $namaErr" : ""; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Masukkan Email" value="<?php echo $email; ?>">
+                    <span class="error"><?php echo $emailErr ? "* $emailErr" : ""; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="nomor">Nomor Telepon:</label>
+                    <input type="text" id="nomor" name="nomor" placeholder="Masukkan Nomor Telepon" value="<?php echo $nomor; ?>">
+                    <span class="error"><?php echo $nomorErr ? "* $nomorErr" : ""; ?></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tiket">Pilih tiket:</label>
+                    <select id="tiket" name="tiket">
+                        <option value="Premium - Rp. 25.000" <?php echo ($tiket == "Premium - Rp. 25.000") ? "selected" : ""; ?>>Premium - Rp. 25.000</option>
+                        <option value="Reguler - Rp. 20.000" <?php echo ($tiket == "Reguler - Rp. 20.000") ? "selected" : ""; ?>>Reguler - Rp. 20.000</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggal" class="col-sm-2 control-label">Tanggal:</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $tanggal; ?>">
+                        <span class="error"><?php echo $tanggalErr ? "* $tanggalErr" : ""; ?></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="permintaan">Permintaan Khusus:</label>
+                    <textarea id="permintaan" name="permintaan" placeholder="Isi permintaan khusus"><?php echo $permintaan; ?></textarea>
+                    <span class="error"><?php echo $permintaanErr ? "* $permintaanErr" : ""; ?></span>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Beli tiket</button>
+                </div>
+            </form>
+        </div>
+    <?php } ?>
+
+    <?php if ($isSuccess) { ?>
+        <div id="popupContainer" class="popup-overlay">
+            <div class="popup-container">
+                <span class="close-popup" onclick="closePopup()">&times;</span>
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>Pembelian tiket berhasil!</h3>
+                <p>Kode Booking: <strong><?php echo $bookingCode; ?></strong></p>
+                <p>Terima kasih telah memesan tiket di Menara Pandang Teratai.</p>
+                <p>Silahkan lakukan pembayaran untuk menyelesaikan proses pemesanan.</p>
+                <div class="button-container">
+                    <button onclick="window.location.href='index.php'">Kembali ke Beranda</button>
+                </div>
             </div>
         </div>
     <?php } ?>
+
+    <script>
+        function closePopup() {
+            document.getElementById('popupContainer').style.display = 'none';
+            window.location.href = 'form.php';
+        }
+    </script>
 
     <?php
     if (isset($conn)) {

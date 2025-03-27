@@ -14,7 +14,7 @@ include 'popup-handler.php';
 
 <body>
     <header class="header">
-        <img class="logo-nav" src="logo.png" alt="logo menara">
+        <img class="logo-nav" src="images/logo.png" alt="logo menara">
         <h2>Menara Pandang Teratai</h2>
         <nav class="navigation">
             <ul>
@@ -47,7 +47,7 @@ include 'popup-handler.php';
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src="ibnu.png" alt="Jane" style="width:100%; height:300px;">
+                        <img src="images/ibnu.png" alt="Jane" style="width:100%; height:300px;">
                         <div class="container">
                             <h3>Muhammad Ibnu Sofyan</h3>
                             <p class="title">FrontEnd Developer</p>
@@ -64,7 +64,7 @@ include 'popup-handler.php';
 
                 <div class="column">
                     <div class="card">
-                        <img src="" alt="Mike" style="width:100%">
+                        <img src="images/farrel.jpg" alt="Mike" style="width:100%; height:300px;">
                         <div class="container">
                             <h3>Meiwildan Muhammad Farrel</h3>
                             <p class="title">UI UX & Hosting</p>
@@ -81,7 +81,7 @@ include 'popup-handler.php';
 
                 <div class="column">
                     <div class="card">
-                        <img src="" alt="John" style="width:100%">
+                        <img src="images/jaizz.JPG" alt="John" style="width:100%; height:300px;">
                         <div class="container">
                             <h3>Jaiz Cahya Prasetya</h3>
                             <p class="title">Backend Developer</p>
@@ -97,7 +97,7 @@ include 'popup-handler.php';
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src="" alt="Yuka" style="width:100%">
+                        <img src="images/dedy.jpeg" alt="Yuka" style="width:100%; height:300px;">
                         <div class="container">
                             <h3>Dedy Tigor Manurung</h3>
                             <p class="title">Database& Server</p>
